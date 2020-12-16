@@ -12,6 +12,7 @@ export const getPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
+  if(!req.body) return res.sendStatus(400);
   const post = req.body;
 
   const newPost = new PostMessage(post);
@@ -25,6 +26,7 @@ export const createPost = async (req, res) => {
 };
 
 export const updatePost = async (req, res) => {
+  if(!req.body) return res.sendStatus(400);
   const { id: _id } = req.params;
   const post = req.body;
 
